@@ -1,0 +1,6 @@
+# Ads.txt for this site
+# Replace the example below with your ad network's publisher id entries
+# Format: <domain>, <publisher id>, <relationship>
+# Example:
+google.com, pub-0000000000000000, DIRECT
+openx.com, 12345, DIRECT
