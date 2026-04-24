@@ -4,15 +4,15 @@ const AdBanner = () => {
   const adRef = useRef(null);
 
   useEffect(() => {
-    // Insert ad network options as an inline script
+    // Insert ad network options as an inline script (728x90)
     const optionsScript = document.createElement('script');
     optionsScript.type = 'text/javascript';
-    optionsScript.innerHTML = "atOptions = { 'key' : 'd2bcdac65dd4fa387f7f2c4dbdf62ae3', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };";
+    optionsScript.innerHTML = "atOptions = { 'key' : '6ebe9adcbd665ee16b7956548810ba8f', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };";
 
     // External script that renders the banner
     const remote = document.createElement('script');
     remote.type = 'text/javascript';
-    remote.src = 'https://www.highperformanceformat.com/d2bcdac65dd4fa387f7f2c4dbdf62ae3/invoke.js';
+    remote.src = 'https://www.highperformanceformat.com/6ebe9adcbd665ee16b7956548810ba8f/invoke.js';
     remote.async = true;
 
     if (adRef.current) {
@@ -26,7 +26,18 @@ const AdBanner = () => {
     };
   }, []);
 
-  return <div ref={adRef} style={{ textAlign: 'center', margin: '20px 0' }} />;
+  return (
+    <div
+      ref={adRef}
+      style={{
+        width: 728,
+        height: 90,
+        display: 'block',
+        margin: '10px auto',
+        textAlign: 'center',
+      }}
+    />
+  );
 };
 
 export default AdBanner;
