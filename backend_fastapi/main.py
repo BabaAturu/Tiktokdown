@@ -1,3 +1,5 @@
+import os
+import uvicorn
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 import httpx
@@ -65,3 +67,7 @@ async def download_video(payload: UrlIn, request: Request):
         return {"success": False, "raw": data}
 
     return {"success": True, "video_url": video_link}
+if __name__ == "__main__":
+    # Render የሚሰጠውን PORT ይጠቀማል፣ ከሌለ ደግሞ 8000
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
